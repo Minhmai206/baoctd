@@ -1,0 +1,2869 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Chi tiết bài báo | Sư đoàn 395 - Trung đoàn 2</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Trang chi tiết bài viết - Sư đoàn 395 - Trung đoàn 2"
+  >
+
+
+  <!-- =====================================================
+       FIREBASE SDK
+       GIỮ NGUYÊN
+  ====================================================== -->
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+
+
+  <!-- =====================================================
+       FONT AWESOME
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+
+  <!-- =====================================================
+       GOOGLE FONT
+  ====================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       CSS TÍCH HỢP TRỰC TIẾP
+  ====================================================== -->
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 62.5%;
+    }
+
+
+    body {
+
+      font-family:
+        "Be Vietnam Pro",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background: #f4f5f7;
+
+      color: #222;
+
+      line-height: 1.7;
+
+      font-size: 1.6rem;
+
+      min-height: 100vh;
+
+      overflow-x: hidden;
+    }
+
+
+    img {
+      max-width: 100%;
+    }
+
+
+    a {
+      color: inherit;
+    }
+
+
+    ::selection {
+      background: #c8102e;
+      color: #fff;
+    }
+
+
+    /* =====================================================
+       BIẾN MÀU
+    ====================================================== */
+
+    :root {
+
+      --red: #c8102e;
+
+      --red-dark: #980b21;
+
+      --red-light: #fbecef;
+
+      --gold: #d5aa32;
+
+      --gold-light: #f4df91;
+
+      --white: #fff;
+
+      --text: #222;
+
+      --muted: #777;
+
+      --border: #e4e4e4;
+
+      --background: #f4f5f7;
+
+      --shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
+
+      --shadow-lg:
+        0 20px 50px rgba(0, 0, 0, 0.14);
+    }
+
+
+    /* =====================================================
+       CONTAINER
+    ====================================================== */
+
+    .container {
+
+      width: 100%;
+
+      max-width: 1240px;
+
+      margin-left: auto;
+
+      margin-right: auto;
+
+      padding-left: 20px;
+
+      padding-right: 20px;
+    }
+
+
+    /* =====================================================
+       TOP BAR
+    ====================================================== */
+
+    .top-info {
+
+      background: #7d0b1d;
+
+      color: rgba(255,255,255,0.92);
+
+      font-size: 1.2rem;
+    }
+
+
+    .top-info-inner {
+
+      min-height: 38px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+
+    .top-info-left {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+
+    .top-info-left i {
+
+      color: var(--gold-light);
+    }
+
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    .top-header {
+
+      background: #fff;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.08);
+
+      position: relative;
+
+      z-index: 100;
+    }
+
+
+    /* =====================================================
+       BRAND AREA
+    ====================================================== */
+
+    .header-main {
+
+      background:
+        linear-gradient(
+          180deg,
+          #fff 0%,
+          #fafafa 100%
+        );
+
+      border-bottom:
+        1px solid #eee;
+    }
+
+
+    .header-content {
+
+      min-height: 115px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 16px;
+
+      text-decoration: none;
+    }
+
+
+    .brand-emblem {
+
+      width: 68px;
+
+      height: 68px;
+
+      flex: 0 0 68px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #c8102e,
+          #8e0a1f
+        );
+
+      border:
+        4px solid var(--gold-light);
+
+      box-shadow:
+        0 4px 15px
+        rgba(200,16,46,0.2);
+
+      position: relative;
+    }
+
+
+    .brand-emblem::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 5px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+      border-radius: 50%;
+    }
+
+
+    .emblem-star {
+
+      color: #fff;
+
+      font-size: 2.7rem;
+
+      line-height: 1;
+
+      text-shadow:
+        0 2px 5px rgba(0,0,0,0.25);
+    }
+
+
+    .brand-small {
+
+      color: #777;
+
+      font-size: 1.05rem;
+
+      font-weight: 800;
+
+      letter-spacing: 1.3px;
+
+      margin-bottom: 3px;
+    }
+
+
+    .brand-title {
+
+      font-family:
+        "Merriweather",
+        Georgia,
+        serif;
+
+      color: var(--red);
+
+      font-size:
+        clamp(2.4rem, 4vw, 3.5rem);
+
+      font-weight: 900;
+
+      line-height: 1.05;
+    }
+
+
+    .brand-subtitle {
+
+      color: #444;
+
+      font-size: 1.35rem;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      margin-top: 4px;
+    }
+
+
+    /* =====================================================
+       AUTHOR
+    ====================================================== */
+
+    .author-info {
+
+      text-align: right;
+
+      border-left:
+        1px solid #e2e2e2;
+
+      padding-left: 28px;
+    }
+
+
+    .author-label {
+
+      color: var(--red);
+
+      font-size: 1rem;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+
+    .author-name {
+
+      color: #333;
+
+      font-size: 1.45rem;
+
+      font-weight: 800;
+
+      margin-top: 3px;
+    }
+
+
+    .author-position {
+
+      color: #777;
+
+      font-size: 1.15rem;
+
+      margin-top: 2px;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
+
+    .main-nav {
+
+      background:
+        linear-gradient(
+          90deg,
+          #b10d27,
+          #c8102e,
+          #b10d27
+        );
+
+      border-top:
+        3px solid var(--gold);
+
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.12);
+    }
+
+
+    .nav-inner {
+
+      min-height: 55px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 3px;
+    }
+
+
+    .nav-link {
+
+      position: relative;
+
+      color: #fff;
+
+      text-decoration: none;
+
+      padding: 16px 15px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      font-size: 1.3rem;
+
+      font-weight: 700;
+
+      transition: 0.3s ease;
+    }
+
+
+    .nav-link i {
+
+      font-size: 1.25rem;
+    }
+
+
+    .nav-link::after {
+
+      content: "";
+
+      position: absolute;
+
+      bottom: 0;
+
+      left: 50%;
+
+      width: 0;
+
+      height: 3px;
+
+      background: #fff;
+
+      transform: translateX(-50%);
+
+      transition:
+        width 0.3s ease;
+    }
+
+
+    .nav-link:hover {
+
+      background:
+        rgba(0,0,0,0.1);
+
+      color: #fff;
+    }
+
+
+    .nav-link:hover::after {
+
+      width: 70%;
+    }
+
+
+    .admin-button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 9px 14px;
+
+      background: #fff;
+
+      color: var(--red);
+
+      border-radius: 6px;
+
+      text-decoration: none;
+
+      font-size: 1.25rem;
+
+      font-weight: 800;
+
+      transition: 0.3s ease;
+    }
+
+
+    .admin-button:hover {
+
+      background:
+        var(--gold-light);
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    /* =====================================================
+       BANNER
+    ====================================================== */
+
+    .hero {
+
+      position: relative;
+
+      width: 100%;
+
+      height: 310px;
+
+      overflow: hidden;
+
+      background: #222;
+    }
+
+
+    .hero img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      filter:
+        brightness(0.65)
+        saturate(0.9);
+    }
+
+
+    .hero-overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(20,20,20,0.75),
+          rgba(20,20,20,0.25)
+        );
+    }
+
+
+    .hero-content {
+
+      position: absolute;
+
+      z-index: 2;
+
+      inset: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: flex-start;
+    }
+
+
+    .hero-label {
+
+      background:
+        rgba(200,16,46,0.94);
+
+      color: #fff;
+
+      padding: 6px 13px;
+
+      border-radius: 4px;
+
+      font-size: 1.1rem;
+
+      font-weight: 800;
+
+      letter-spacing: 0.8px;
+
+      margin-bottom: 13px;
+    }
+
+
+    .hero-content h1 {
+
+      color: #fff;
+
+      font-family:
+        "Merriweather",
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(3.5rem, 7vw, 6rem);
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      text-shadow:
+        0 3px 10px rgba(0,0,0,0.4);
+    }
+
+
+    .hero-content p {
+
+      color:
+        rgba(255,255,255,0.9);
+
+      font-size: 1.35rem;
+
+      margin-top: 12px;
+    }
+
+
+    /* =====================================================
+       MAIN
+    ====================================================== */
+
+    main {
+
+      padding:
+        45px 0 70px;
+
+      background:
+        var(--background);
+
+      min-height:
+        500px;
+    }
+
+
+    /* =====================================================
+       BREADCRUMB
+    ====================================================== */
+
+    .breadcrumb {
+
+      display: flex;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 22px;
+
+      color: #888;
+
+      font-size: 1.2rem;
+    }
+
+
+    .breadcrumb a {
+
+      color: var(--red);
+
+      text-decoration: none;
+
+      font-weight: 700;
+    }
+
+
+    .breadcrumb a:hover {
+
+      text-decoration:
+        underline;
+    }
+
+
+    .breadcrumb i {
+
+      font-size:
+        0.9rem;
+
+      color:
+        #aaa;
+    }
+
+
+    /* =====================================================
+       ARTICLE AREA
+    ====================================================== */
+
+    .article-layout {
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        280px;
+
+      gap: 28px;
+
+      align-items: start;
+    }
+
+
+    /* =====================================================
+       ARTICLE
+    ====================================================== */
+
+    .article-full {
+
+      background:
+        #fff;
+
+      border:
+        1px solid #e4e4e4;
+
+      border-radius:
+        12px;
+
+      box-shadow:
+        var(--shadow);
+
+      padding:
+        35px 40px;
+
+      overflow:
+        hidden;
+
+      animation:
+        articleReveal
+        0.7s
+        ease
+        both;
+    }
+
+
+    @keyframes articleReveal {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(25px);
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* =====================================================
+       CATEGORY
+    ====================================================== */
+
+    .article-category {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap: 6px;
+
+      background:
+        var(--red-light);
+
+      color:
+        var(--red);
+
+      border:
+        1px solid
+        rgba(200,16,46,0.12);
+
+      border-radius:
+        4px;
+
+      padding:
+        6px 11px;
+
+      font-size:
+        1.1rem;
+
+      font-weight:
+        800;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        13px;
+    }
+
+
+    /* =====================================================
+       TITLE
+    ====================================================== */
+
+    .article-full h1,
+    .article-full h2 {
+
+      font-family:
+        "Merriweather",
+        Georgia,
+        serif;
+
+      color:
+        #202020;
+
+      font-size:
+        clamp(2.6rem, 5vw, 4.2rem);
+
+      line-height:
+        1.3;
+
+      font-weight:
+        900;
+
+      margin:
+        0 0 16px;
+    }
+
+
+    .article-full h1::after,
+    .article-full h2::after {
+
+      content:
+        "";
+
+      display:
+        block;
+
+      width:
+        65px;
+
+      height:
+        4px;
+
+      background:
+        var(--red);
+
+      margin-top:
+        15px;
+
+      border-radius:
+        5px;
+    }
+
+
+    /* =====================================================
+       ARTICLE META
+    ====================================================== */
+
+    .article-meta {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        15px;
+
+      padding:
+        13px 0;
+
+      margin-bottom:
+        22px;
+
+      border-top:
+        1px solid #eee;
+
+      border-bottom:
+        1px solid #eee;
+
+      color:
+        #777;
+
+      font-size:
+        1.15rem;
+    }
+
+
+    .article-meta span {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        6px;
+    }
+
+
+    .article-meta i {
+
+      color:
+        var(--red);
+    }
+
+
+    /* =====================================================
+       ARTICLE IMAGE
+    ====================================================== */
+
+    .article-full img {
+
+      width:
+        100%;
+
+      height:
+        auto;
+
+      max-height:
+        600px;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+      border-radius:
+        9px;
+
+      margin:
+        25px 0;
+
+      box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.12);
+    }
+
+
+    /* =====================================================
+       ARTICLE CONTENT
+       
+       Các nội dung được app.js chèn vào vẫn giữ nguyên.
+    ====================================================== */
+
+    .article-full p {
+
+      color:
+        #333;
+
+      font-size:
+        1.65rem;
+
+      line-height:
+        1.9;
+
+      margin:
+        0 0 18px;
+    }
+
+
+    .article-full strong {
+
+      font-weight:
+        800;
+    }
+
+
+    .article-full ul,
+    .article-full ol {
+
+      margin:
+        0 0 20px 25px;
+    }
+
+
+    .article-full li {
+
+      margin-bottom:
+        8px;
+
+      line-height:
+        1.8;
+    }
+
+
+    .article-full blockquote {
+
+      margin:
+        25px 0;
+
+      padding:
+        18px 22px;
+
+      border-left:
+        4px solid var(--red);
+
+      background:
+        var(--red-light);
+
+      color:
+        #555;
+
+      font-style:
+        italic;
+    }
+
+
+    /* =====================================================
+       VIDEO / IFRAME
+    ====================================================== */
+
+    .article-full iframe {
+
+      width:
+        100%;
+
+      min-height:
+        450px;
+
+      border:
+        none;
+
+      border-radius:
+        9px;
+
+      margin:
+        20px 0;
+
+      box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.1);
+    }
+
+
+    /* =====================================================
+       SIDEBAR
+    ====================================================== */
+
+    .article-sidebar {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        18px;
+    }
+
+
+    .sidebar-box {
+
+      background:
+        #fff;
+
+      border:
+        1px solid #e4e4e4;
+
+      border-radius:
+        10px;
+
+      padding:
+        20px;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    .sidebar-title {
+
+      color:
+        #222;
+
+      font-family:
+        "Merriweather",
+        Georgia,
+        serif;
+
+      font-size:
+        1.55rem;
+
+      font-weight:
+        900;
+
+      padding-bottom:
+        10px;
+
+      margin-bottom:
+        15px;
+
+      border-bottom:
+        2px solid #eee;
+
+      position:
+        relative;
+    }
+
+
+    .sidebar-title::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      left:
+        0;
+
+      bottom:
+        -2px;
+
+      width:
+        40px;
+
+      height:
+        2px;
+
+      background:
+        var(--red);
+    }
+
+
+    .sidebar-link {
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+
+      gap:
+        9px;
+
+      color:
+        #555;
+
+      text-decoration:
+        none;
+
+      font-size:
+        1.25rem;
+
+      line-height:
+        1.55;
+
+      padding:
+        9px 0;
+
+      border-bottom:
+        1px solid #eee;
+
+      transition:
+        0.25s ease;
+    }
+
+
+    .sidebar-link:last-child {
+
+      border-bottom:
+        none;
+    }
+
+
+    .sidebar-link i {
+
+      color:
+        var(--red);
+
+      margin-top:
+        4px;
+    }
+
+
+    .sidebar-link:hover {
+
+      color:
+        var(--red);
+
+      padding-left:
+        4px;
+    }
+
+
+    /* =====================================================
+       BACK BUTTON
+    ====================================================== */
+
+    .back-area {
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        12px;
+
+      margin-bottom:
+        20px;
+    }
+
+
+    .back-button {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      background:
+        #fff;
+
+      color:
+        var(--red);
+
+      border:
+        1px solid
+        var(--red);
+
+      border-radius:
+        6px;
+
+      padding:
+        9px 15px;
+
+      text-decoration:
+        none;
+
+      font-size:
+        1.25rem;
+
+      font-weight:
+        800;
+
+      transition:
+        0.3s ease;
+    }
+
+
+    .back-button:hover {
+
+      background:
+        var(--red);
+
+      color:
+        #fff;
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 5px 15px
+        rgba(200,16,46,0.2);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    .site-footer {
+
+      background:
+        linear-gradient(
+          135deg,
+          #171717,
+          #252525
+        );
+
+      color:
+        #fff;
+    }
+
+
+    .footer-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr 1.2fr;
+
+      gap:
+        40px;
+
+      padding:
+        45px 20px;
+    }
+
+
+    .footer-column h3 {
+
+      color:
+        #fff;
+
+      font-size:
+        1.2rem;
+
+      letter-spacing:
+        1px;
+
+      margin-bottom:
+        15px;
+
+      padding-bottom:
+        8px;
+
+      position:
+        relative;
+    }
+
+
+    .footer-column h3::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      left:
+        0;
+
+      bottom:
+        0;
+
+      width:
+        35px;
+
+      height:
+        2px;
+
+      background:
+        var(--red);
+    }
+
+
+    .footer-column a {
+
+      display:
+        block;
+
+      color:
+        #c5c5c5;
+
+      text-decoration:
+        none;
+
+      font-size:
+        1.25rem;
+
+      margin-bottom:
+        9px;
+
+      transition:
+        0.25s ease;
+    }
+
+
+    .footer-column a:hover {
+
+      color:
+        #fff;
+
+      padding-left:
+        4px;
+    }
+
+
+    .footer-column p {
+
+      color:
+        #aaa;
+
+      font-size:
+        1.2rem;
+
+      line-height:
+        1.7;
+    }
+
+
+    .footer-brand {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+
+      margin-bottom:
+        15px;
+    }
+
+
+    .footer-star {
+
+      width:
+        45px;
+
+      height:
+        45px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--red);
+
+      color:
+        #fff;
+
+      font-size:
+        2rem;
+    }
+
+
+    .footer-brand strong {
+
+      display:
+        block;
+
+      font-size:
+        1.5rem;
+    }
+
+
+    .footer-brand span {
+
+      color:
+        #999;
+
+      font-size:
+        1rem;
+
+      letter-spacing:
+        1px;
+    }
+
+
+    .footer-bottom {
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      background:
+        rgba(0,0,0,0.25);
+    }
+
+
+    .footer-bottom-inner {
+
+      min-height:
+        52px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      color:
+        #888;
+
+      font-size:
+        1.05rem;
+    }
+
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    .back-to-top {
+
+      position:
+        fixed;
+
+      right:
+        20px;
+
+      bottom:
+        20px;
+
+      width:
+        44px;
+
+      height:
+        44px;
+
+      border:
+        none;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--red);
+
+      color:
+        #fff;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      font-size:
+        1.5rem;
+
+      cursor:
+        pointer;
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      transform:
+        translateY(15px);
+
+      transition:
+        0.3s ease;
+
+      z-index:
+        999;
+
+      box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.2);
+    }
+
+
+    .back-to-top.show {
+
+      opacity:
+        1;
+
+      visibility:
+        visible;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ====================================================== */
+
+    @media (max-width: 900px) {
+
+      .author-info {
+        display: none;
+      }
+
+
+      .article-layout {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .article-sidebar {
+
+        display:
+          grid;
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    /* =====================================================
+       TABLET
+    ====================================================== */
+
+    @media (max-width: 700px) {
+
+      .top-info {
+        display: none;
+      }
+
+
+      .header-content {
+
+        min-height:
+          88px;
+      }
+
+
+      .brand-emblem {
+
+        width:
+          55px;
+
+        height:
+          55px;
+
+        flex-basis:
+          55px;
+      }
+
+
+      .emblem-star {
+        font-size:
+          2.2rem;
+      }
+
+
+      .brand-small {
+        display: none;
+      }
+
+
+      .brand-title {
+
+        font-size:
+          2.4rem;
+      }
+
+
+      .brand-subtitle {
+
+        font-size:
+          1.1rem;
+
+        letter-spacing:
+          1px;
+      }
+
+
+      .nav-inner {
+
+        overflow-x:
+          auto;
+
+        justify-content:
+          flex-start;
+      }
+
+
+      .nav-links {
+
+        width:
+          max-content;
+      }
+
+
+      .admin-button {
+
+        display:
+          none;
+      }
+
+
+      .hero {
+
+        height:
+          250px;
+      }
+
+
+      .hero-content {
+
+        padding:
+          20px;
+      }
+
+
+      .hero-content h1 {
+
+        font-size:
+          3.8rem;
+      }
+
+
+      .article-full {
+
+        padding:
+          25px 20px;
+      }
+
+
+      .article-full h1,
+      .article-full h2 {
+
+        font-size:
+          2.5rem;
+      }
+
+
+      .article-full p {
+
+        font-size:
+          1.5rem;
+
+        line-height:
+          1.85;
+      }
+
+
+      .article-full iframe {
+
+        min-height:
+          260px;
+      }
+
+
+      .article-sidebar {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .footer-grid {
+
+        grid-template-columns:
+          1fr;
+
+        padding-top:
+          35px;
+
+        padding-bottom:
+          35px;
+      }
+
+
+      .footer-bottom-inner {
+
+        flex-direction:
+          column;
+
+        justify-content:
+          center;
+
+        gap:
+          5px;
+
+        padding:
+          12px 20px;
+
+        text-align:
+          center;
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE NHỎ
+    ====================================================== */
+
+    @media (max-width: 480px) {
+
+      .container {
+
+        padding-left:
+          13px;
+
+        padding-right:
+          13px;
+      }
+
+
+      .header-content {
+
+        min-height:
+          75px;
+      }
+
+
+      .brand {
+
+        gap:
+          9px;
+      }
+
+
+      .brand-emblem {
+
+        width:
+          45px;
+
+        height:
+          45px;
+
+        flex-basis:
+          45px;
+
+        border-width:
+          3px;
+      }
+
+
+      .emblem-star {
+
+        font-size:
+          1.8rem;
+      }
+
+
+      .brand-title {
+
+        font-size:
+          1.9rem;
+      }
+
+
+      .brand-subtitle {
+
+        font-size:
+          0.9rem;
+      }
+
+
+      .main-nav {
+
+        border-top:
+          2px solid var(--gold);
+      }
+
+
+      .nav-link {
+
+        padding:
+          11px 9px;
+
+        font-size:
+          1.1rem;
+      }
+
+
+      .nav-link i {
+
+        display:
+          none;
+      }
+
+
+      .hero {
+
+        height:
+          210px;
+      }
+
+
+      .hero-content h1 {
+
+        font-size:
+          3rem;
+      }
+
+
+      .hero-content p {
+
+        font-size:
+          1.1rem;
+
+        max-width:
+          290px;
+      }
+
+
+      main {
+
+        padding-top:
+          25px;
+
+        padding-bottom:
+          40px;
+      }
+
+
+      .article-full {
+
+        padding:
+          20px 15px;
+
+        border-radius:
+          9px;
+      }
+
+
+      .article-full h1,
+      .article-full h2 {
+
+        font-size:
+          2.15rem;
+      }
+
+
+      .article-full img {
+
+        margin:
+          18px 0;
+
+        border-radius:
+          7px;
+      }
+
+
+      .article-full p {
+
+        font-size:
+          1.45rem;
+      }
+
+
+      .article-meta {
+
+        font-size:
+          1.05rem;
+      }
+
+
+      .back-button {
+
+        width:
+          100%;
+
+        justify-content:
+          center;
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+    ====================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          0.01ms !important;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="top-header">
+
+
+    <!-- TOP BAR -->
+
+    <div class="top-info">
+
+      <div class="container top-info-inner">
+
+        <div class="top-info-left">
+
+          <i class="fa-solid fa-star"></i>
+
+          <span>
+            Cổng thông tin điện tử
+          </span>
+
+        </div>
+
+        <span>
+          Sư đoàn 395 - Trung đoàn 2
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- HEADER CHÍNH -->
+
+    <div class="header-main">
+
+      <div class="container header-content">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="brand">
+
+          <div class="brand-emblem">
+
+            <div class="emblem-star">
+              ★
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="brand-small">
+              BÁO QUÂN ĐỘI NHÂN DÂN ĐIỆN TỬ
+            </div>
+
+            <div class="brand-title">
+              SƯ ĐOÀN 395
+            </div>
+
+            <div class="brand-subtitle">
+              TRUNG ĐOÀN 2
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- TÁC GIẢ -->
+
+        <div class="author-info">
+
+          <div class="author-label">
+            TÁC GIẢ TRANG BÁO
+          </div>
+
+          <div class="author-name">
+            Trần Đức Toản
+          </div>
+
+          <div class="author-position">
+            Chính trị viên - Đại đội 10 - Tiểu đoàn 3
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         MENU
+    ==================================================== -->
+
+    <nav class="main-nav">
+
+      <div class="container nav-inner">
+
+        <div class="nav-links">
+
+
+          <a
+            href="index.html"
+            class="nav-link"
+          >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+              Trang chủ
+            </span>
+
+          </a>
+
+
+          <a
+            href="index.html?category=Tin%20th%E1%BA%BF%20gi%E1%BB%9Bi"
+            class="nav-link"
+          >
+
+            <i class="fa-solid fa-earth-asia"></i>
+
+            <span>
+              Tin thế giới
+            </span>
+
+          </a>
+
+
+          <a
+            href="index.html?category=Tin%20trong%20n%C6%B0%E1%BB%9Bc"
+            class="nav-link"
+          >
+
+            <i class="fa-solid fa-landmark"></i>
+
+            <span>
+              Tin trong nước
+            </span>
+
+          </a>
+
+
+          <a
+            href="index.html?category=Tin%20LLVT"
+            class="nav-link"
+          >
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+              Tin LLVT
+            </span>
+
+          </a>
+
+
+          <a
+            href="index.html?category=Tin%20%C4%91%C6%A1n%20v%E1%BB%8B"
+            class="nav-link"
+          >
+
+            <i class="fa-solid fa-building-shield"></i>
+
+            <span>
+              Tin đơn vị
+            </span>
+
+          </a>
+
+
+        </div>
+
+
+        <a
+          href="login.html"
+          class="admin-button"
+        >
+
+          <i class="fa-solid fa-user-shield"></i>
+
+          <span>
+            Đăng nhập Admin
+          </span>
+
+        </a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================================
+       HERO BANNER
+  ====================================================== -->
+
+  <section class="hero">
+
+
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDegXWq2A2M96pBVRmJV0FPkhWRMjEGnizQ&s"
+      alt="Sư đoàn 395 - Trung đoàn 2"
+    >
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="container hero-content">
+
+      <div class="hero-label">
+
+        <i class="fa-solid fa-newspaper"></i>
+
+        CHI TIẾT BÀI VIẾT
+
+      </div>
+
+
+      <h1>
+        Sư đoàn 395
+      </h1>
+
+
+      <p>
+        Trung đoàn 2 - Tin tức và hoạt động đơn vị
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main>
+
+
+    <div class="container">
+
+
+      <!-- =================================================
+           BREADCRUMB
+      ================================================== -->
+
+      <div class="breadcrumb">
+
+        <a href="index.html">
+
+          <i class="fa-solid fa-house"></i>
+
+          Trang chủ
+
+        </a>
+
+
+        <i class="fa-solid fa-angle-right"></i>
+
+
+        <span>
+          Chi tiết bài viết
+        </span>
+
+      </div>
+
+
+      <!-- =================================================
+           NÚT QUAY LẠI
+      ================================================== -->
+
+      <div class="back-area">
+
+        <a
+          href="index.html"
+          class="back-button"
+        >
+
+          <i class="fa-solid fa-arrow-left"></i>
+
+          Quay lại trang chủ
+
+        </a>
+
+      </div>
+
+
+      <!-- =================================================
+           ARTICLE LAYOUT
+      ================================================== -->
+
+      <div class="article-layout">
+
+
+        <!-- =================================================
+             KHU VỰC BÀI VIẾT
+             
+             QUAN TRỌNG:
+             ID detail-content ĐƯỢC GIỮ NGUYÊN.
+             
+             app.js sẽ chèn nội dung vào đây.
+        ================================================== -->
+
+        <div
+          id="detail-content"
+          class="article-full"
+        ></div>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="article-sidebar">
+
+
+          <div class="sidebar-box">
+
+            <div class="sidebar-title">
+              Chuyên mục
+            </div>
+
+
+            <a
+              href="index.html?category=Tin%20th%E1%BA%BF%20gi%E1%BB%9Bi"
+              class="sidebar-link"
+            >
+
+              <i class="fa-solid fa-earth-asia"></i>
+
+              Tin thế giới
+
+            </a>
+
+
+            <a
+              href="index.html?category=Tin%20trong%20n%C6%B0%E1%BB%9Bc"
+              class="sidebar-link"
+            >
+
+              <i class="fa-solid fa-landmark"></i>
+
+              Tin trong nước
+
+            </a>
+
+
+            <a
+              href="index.html?category=Tin%20LLVT"
+              class="sidebar-link"
+            >
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              Tin LLVT
+
+            </a>
+
+
+            <a
+              href="index.html?category=Tin%20%C4%91%C6%A1n%20v%E1%BB%8B"
+              class="sidebar-link"
+            >
+
+              <i class="fa-solid fa-building-shield"></i>
+
+              Tin đơn vị
+
+            </a>
+
+          </div>
+
+
+          <div class="sidebar-box">
+
+            <div class="sidebar-title">
+              Thông tin
+            </div>
+
+
+            <div class="sidebar-link">
+
+              <i class="fa-solid fa-user-pen"></i>
+
+              <span>
+                TRẦN ĐỨC TOẢN
+              </span>
+
+            </div>
+
+
+            <div class="sidebar-link">
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              <span>
+                Chính trị viên - Đại đội 10
+              </span>
+
+            </div>
+
+
+            <div class="sidebar-link">
+
+              <i class="fa-solid fa-building"></i>
+
+              <span>
+                Tiểu đoàn 8
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </aside>
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
+
+
+    <div class="container footer-grid">
+
+
+      <!-- THÔNG TIN -->
+
+      <div class="footer-column">
+
+
+        <div class="footer-brand">
+
+          <div class="footer-star">
+            ★
+          </div>
+
+          <div>
+
+            <strong>
+              SƯ ĐOÀN 395
+            </strong>
+
+            <span>
+              TRUNG ĐOÀN 2
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p>
+
+          Trang thông tin điện tử giới thiệu,
+          cập nhật tin tức và hoạt động của
+          Sư đoàn 395 - Trung đoàn 2.
+
+        </p>
+
+      </div>
+
+
+      <!-- CHUYÊN MỤC -->
+
+      <div class="footer-column">
+
+        <h3>
+          CHUYÊN MỤC
+        </h3>
+
+
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          Trang chủ
+        </a>
+
+
+        <a href="index.html?category=Tin%20th%E1%BA%BF%20gi%E1%BB%9Bi">
+          <i class="fa-solid fa-earth-asia"></i>
+          Tin thế giới
+        </a>
+
+
+        <a href="index.html?category=Tin%20trong%20n%C6%B0%E1%BB%9Bc">
+          <i class="fa-solid fa-landmark"></i>
+          Tin trong nước
+        </a>
+
+
+        <a href="index.html?category=Tin%20LLVT">
+          <i class="fa-solid fa-shield-halved"></i>
+          Tin LLVT
+        </a>
+
+
+        <a href="index.html?category=Tin%20%C4%91%C6%A1n%20v%E1%BB%8B">
+          <i class="fa-solid fa-building-shield"></i>
+          Tin đơn vị
+        </a>
+
+      </div>
+
+
+      <!-- LIÊN KẾT -->
+
+      <div class="footer-column">
+
+        <h3>
+          LIÊN KẾT
+        </h3>
+
+
+        <a href="index.html">
+          Trang chủ
+        </a>
+
+
+        <a href="login.html">
+          Quản trị hệ thống
+        </a>
+
+      </div>
+
+
+      <!-- TÁC GIẢ -->
+
+      <div class="footer-column">
+
+        <h3>
+          TÁC GIẢ
+        </h3>
+
+
+        <p>
+          <strong>
+            Trần Đức Toản
+          </strong>
+        </p>
+
+
+        <p>
+          Chính trị viên
+        </p>
+
+
+        <p>
+          Đại đội 10 - Tiểu đoàn 3
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container footer-bottom-inner">
+
+        <span>
+          © 2026 Sư đoàn 395 - Trung đoàn 2
+        </span>
+
+
+        <span>
+          Trang thông tin điện tử
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </footer>
+
+
+  <!-- =====================================================
+       BACK TO TOP
+  ====================================================== -->
+
+  <button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Lên đầu trang"
+  >
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+  </button>
+
+
+  <!-- =====================================================
+       APP.JS
+       
+       GIỮ NGUYÊN HOÀN TOÀN
+  ====================================================== -->
+
+  <script src="app.js"></script>
+
+
+  <!-- =====================================================
+       LOGIC HIỂN THỊ CHI TIẾT
+       
+       GIỮ NGUYÊN CHỨC NĂNG CỦA CODE CŨ
+  ====================================================== -->
+
+  <script>
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const id =
+      params.get("id");
+
+
+    if (id) {
+
+      showDetailPage(
+        id,
+        "detail-content"
+      );
+
+    } else {
+
+      document.getElementById(
+        "detail-content"
+      ).innerHTML = `
+
+        <div style="
+          text-align:center;
+          padding:60px 20px;
+        ">
+
+          <div style="
+            width:70px;
+            height:70px;
+            margin:0 auto 20px;
+            border-radius:50%;
+            background:#fbecef;
+            color:#c8102e;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+          ">
+
+            <i class="fa-solid fa-file-circle-xmark"></i>
+
+          </div>
+
+          <h2 style="
+            color:#c8102e;
+            margin-bottom:10px;
+          ">
+            Bài viết không tồn tại
+          </h2>
+
+          <p style="
+            color:#777;
+            margin-bottom:20px;
+          ">
+            Không tìm thấy mã bài viết trong đường dẫn.
+          </p>
+
+          <a
+            href="index.html"
+            style="
+              display:inline-flex;
+              align-items:center;
+              gap:8px;
+              background:#c8102e;
+              color:#fff;
+              padding:10px 18px;
+              border-radius:6px;
+              text-decoration:none;
+              font-weight:700;
+            "
+          >
+
+            <i class="fa-solid fa-house"></i>
+
+            Về trang chủ
+
+          </a>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    const backToTop =
+      document.getElementById(
+        "backToTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        if (
+          window.scrollY > 400
+        ) {
+
+          backToTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          backToTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    backToTop.addEventListener(
+      "click",
+      function () {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
+```

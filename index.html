@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Báo Quân đội nhân dân điện tử | Sư đoàn 395 - Trung đoàn 2</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Trang thông tin điện tử Sư đoàn 395 - Trung đoàn 2">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- =========================================================
+       FIREBASE SDK
+       Giữ nguyên Firebase để tương thích với hệ thống hiện tại
+  ========================================================== -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+
+  <!-- =========================================================
+       ICON FONT
+  ========================================================== -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- =========================================================
+       FONT
+  ========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     THANH THÔNG TIN TRÊN CÙNG
+========================================================== -->
+
+<div class="top-info">
+
+  <div class="container top-info-inner">
+
+    <div class="top-left">
+      <i class="fa-solid fa-star"></i>
+      Cổng thông tin điện tử
+    </div>
+
+    <div class="top-right">
+      <span>
+        <i class="fa-regular fa-calendar"></i>
+        <span id="currentDate"></span>
+      </span>
+
+      <span class="top-separator">|</span>
+
+      <span>
+        Sư đoàn 395 - Trung đoàn 2
+      </span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER CHÍNH
+========================================================== -->
+
+<header class="top-header">
+
+  <div class="header-main">
+
+    <div class="container header-content">
+
+      <!-- LOGO / TÊN ĐƠN VỊ -->
+
+      <a href="index.html" class="brand">
+
+        <div class="brand-emblem">
+
+          <div class="emblem-star">
+            ★
+          </div>
+
+        </div>
+
+        <div class="brand-text">
+
+          <div class="brand-small">
+            BÁO QUÂN ĐỘI NHÂN DÂN ĐIỆN TỬ
+          </div>
+
+          <div class="brand-title">
+            SƯ ĐOÀN 395
+          </div>
+
+          <div class="brand-subtitle">
+            TRUNG ĐOÀN 2
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- THÔNG TIN TÁC GIẢ -->
+
+      <div class="author-info">
+
+        <div class="author-label">
+          TÁC GIẢ TRANG BÁO
+        </div>
+
+        <div class="author-name">
+          Trần Đức Toản 
+        </div>
+
+        <div class="author-position">
+          Chính trị viên - Đại đội 10 - Tiểu đoàn 3
+        </div>
+
+      </div>
+
+
+      <!-- NÚT MOBILE -->
+
+      <button class="mobile-menu-btn"
+              id="mobileMenuBtn"
+              aria-label="Mở menu">
+
+        <i class="fa-solid fa-bars"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       MENU ĐIỀU HƯỚNG
+  ======================================================== -->
+
+  <nav class="main-nav" id="mainNav">
+
+    <div class="container nav-inner">
+
+      <div class="nav-links">
+
+        <a href="index.html" class="nav-link active">
+          <i class="fa-solid fa-house"></i>
+          <span>Trang chủ</span>
+        </a>
+
+
+        <a href="#"
+           class="nav-link"
+           onclick="filterByCategory('Tin thế giới'); return false;">
+
+          <i class="fa-solid fa-earth-asia"></i>
+          <span>Tin thế giới</span>
+
+        </a>
+
+
+        <a href="#"
+           class="nav-link"
+           onclick="filterByCategory('Tin trong nước'); return false;">
+
+          <i class="fa-solid fa-landmark"></i>
+          <span>Tin trong nước</span>
+
+        </a>
+
+
+        <a href="#"
+           class="nav-link"
+           onclick="filterByCategory('Tin LLVT'); return false;">
+
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Tin LLVT</span>
+
+        </a>
+
+
+        <a href="#"
+           class="nav-link"
+           onclick="filterByCategory('Tin đơn vị'); return false;">
+
+          <i class="fa-solid fa-building-shield"></i>
+          <span>Tin đơn vị</span>
+
+        </a>
+
+      </div>
+
+
+      <!-- ADMIN -->
+
+      <a href="login.html" class="admin-button">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <span>Đăng nhập Admin</span>
+
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+<!-- =========================================================
+     BANNER
+========================================================== -->
+
+<section class="hero">
+
+  <div class="hero-image">
+
+    <img
+      src="https://photo-baomoi.bmcdn.me/w700_r1/2025_11_04_16_53668214/8891f2ada6e44fba16f5.jpg"
+      alt="Sư đoàn 395 - Trung đoàn 2"
+      loading="eager"
+    >
+
+  </div>
+
+
+  <div class="hero-overlay"></div>
+
+
+  <div class="container hero-content">
+
+    <div class="hero-label">
+
+      <i class="fa-solid fa-star"></i>
+
+      TRUYỀN THỐNG - ĐOÀN KẾT - KỶ LUẬT
+
+    </div>
+
+
+    <h1>
+      SƯ ĐOÀN 395
+    </h1>
+
+
+    <h2>
+      TRUNG ĐOÀN 2
+    </h2>
+
+
+    <p>
+      Cập nhật thông tin, hoạt động và tin tức mới nhất của đơn vị
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     THANH TIÊU ĐỀ / ĐỊNH HƯỚNG
+========================================================== -->
+
+<section class="quick-info">
+
+  <div class="container quick-info-inner">
+
+    <div class="quick-item">
+
+      <div class="quick-icon">
+        <i class="fa-solid fa-newspaper"></i>
+      </div>
+
+      <div>
+        <strong>THÔNG TIN MỚI NHẤT</strong>
+        <span>Cập nhật thường xuyên</span>
+      </div>
+
+    </div>
+
+
+    <div class="quick-item">
+
+      <div class="quick-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <div>
+        <strong>THÔNG TIN LLVT</strong>
+        <span>Tin tức quốc phòng</span>
+      </div>
+
+    </div>
+
+
+    <div class="quick-item">
+
+      <div class="quick-icon">
+        <i class="fa-solid fa-flag"></i>
+      </div>
+
+      <div>
+        <strong>HOẠT ĐỘNG ĐƠN VỊ</strong>
+        <span>Thông tin nội bộ</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     KHU VỰC NỘI DUNG
+========================================================== -->
+
+<main>
+
+  <div class="container">
+
+
+    <!-- =====================================================
+         TIÊU ĐỀ KHU VỰC TIN
+    ====================================================== -->
+
+    <div class="section-heading">
+
+      <div>
+
+        <span class="section-kicker">
+          THÔNG TIN MỚI
+        </span>
+
+        <h2>
+          Tin tức & Hoạt động
+        </h2>
+
+      </div>
+
+      <div class="section-line"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         THANH TÌM KIẾM + BỘ LỌC
+    ====================================================== -->
+
+    <section class="search-panel">
+
+      <div class="search-box-wrapper">
+
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Tìm kiếm bài viết..."
+          autocomplete="off"
+          oninput="searchArticles()"
+        >
+
+        <button
+          type="button"
+          class="clear-search"
+          id="clearSearch"
+          aria-label="Xóa tìm kiếm"
+          onclick="clearSearchBox()"
+        >
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+
+      <div class="category-wrapper">
+
+        <i class="fa-solid fa-filter"></i>
+
+        <select
+          id="categoryFilter"
+          onchange="filterArticles()"
+        >
+
+          <option value="all">
+            Tất cả chuyên mục
+          </option>
+
+          <option value="Tin thế giới">
+            Tin thế giới
+          </option>
+
+          <option value="Tin trong nước">
+            Tin trong nước
+          </option>
+
+          <option value="Tin LLVT">
+            Tin LLVT
+          </option>
+
+          <option value="Tin đơn vị">
+            Tin đơn vị
+          </option>
+
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CÁC NÚT LỌC NHANH
+    ====================================================== -->
+
+    <div class="category-tabs">
+
+      <button
+        type="button"
+        class="category-tab active"
+        onclick="filterByCategory('all')"
+      >
+        Tất cả
+      </button>
+
+
+      <button
+        type="button"
+        class="category-tab"
+        onclick="filterByCategory('Tin thế giới')"
+      >
+        Thế giới
+      </button>
+
+
+      <button
+        type="button"
+        class="category-tab"
+        onclick="filterByCategory('Tin trong nước')"
+      >
+        Trong nước
+      </button>
+
+
+      <button
+        type="button"
+        class="category-tab"
+        onclick="filterByCategory('Tin LLVT')"
+      >
+        LLVT
+      </button>
+
+
+      <button
+        type="button"
+        class="category-tab"
+        onclick="filterByCategory('Tin đơn vị')"
+      >
+        Tin đơn vị
+      </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         KHU VỰC HIỂN THỊ BÀI VIẾT
+         
+         QUAN TRỌNG:
+         Giữ nguyên ID news-grid để app.js hoạt động.
+    ====================================================== -->
+
+    <section class="news-section">
+
+      <div
+        class="main news-grid"
+        id="news-grid"
+      ></div>
+
+    </section>
+
+
+  </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container footer-grid">
+
+
+    <!-- THÔNG TIN -->
+
+    <div class="footer-column">
+
+      <div class="footer-brand">
+
+        <div class="footer-star">
+          ★
+        </div>
+
+        <div>
+
+          <strong>
+            SƯ ĐOÀN 395
+          </strong>
+
+          <span>
+            TRUNG ĐOÀN 2
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <p class="footer-description">
+
+        Trang thông tin điện tử giới thiệu,
+        cập nhật tin tức và hoạt động của
+        Sư đoàn 395 - Trung đoàn 2.
+
+      </p>
+
+    </div>
+
+
+    <!-- CHUYÊN MỤC -->
+
+    <div class="footer-column">
+
+      <h3>
+        CHUYÊN MỤC
+      </h3>
+
+      <a href="#"
+         onclick="filterByCategory('Tin thế giới'); return false;">
+        Tin thế giới
+      </a>
+
+      <a href="#"
+         onclick="filterByCategory('Tin trong nước'); return false;">
+        Tin trong nước
+      </a>
+
+      <a href="#"
+         onclick="filterByCategory('Tin LLVT'); return false;">
+        Tin LLVT
+      </a>
+
+      <a href="#"
+         onclick="filterByCategory('Tin đơn vị'); return false;">
+        Tin đơn vị
+      </a>
+
+    </div>
+
+
+    <!-- LIÊN KẾT -->
+
+    <div class="footer-column">
+
+      <h3>
+        LIÊN KẾT
+      </h3>
+
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ
+      </a>
+
+      <a href="login.html">
+        <i class="fa-solid fa-user-shield"></i>
+        Quản trị hệ thống
+      </a>
+
+    </div>
+
+
+    <!-- TÁC GIẢ -->
+
+    <div class="footer-column">
+
+      <h3>
+        TÁC GIẢ
+      </h3>
+
+      <p>
+        <strong>
+          
+        </strong>
+      </p>
+
+      <p>
+        Trấn Đức Toản
+      </p>
+
+      <p>
+        Đại đội 10 - Tiểu đoàn 3
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <div class="container footer-bottom-inner">
+
+      <span>
+        © 2026 Sư đoàn 395 - Trung đoàn 2
+      </span>
+
+      <span>
+        Trang thông tin điện tử
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- =========================================================
+     NÚT LÊN ĐẦU TRANG
+========================================================== -->
+
+<button
+  id="backToTop"
+  class="back-to-top"
+  aria-label="Lên đầu trang"
+>
+
+  <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =========================================================
+     JAVASCRIPT HIỆN TẠI
+     
+     GIỮ NGUYÊN app.js
+========================================================== -->
+
+<script src="app.js"></script>
+
+
+<!-- =========================================================
+     SCRIPT GIAO DIỆN
+     
+     Không thay đổi logic Firebase / bài viết.
+========================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ========================================================
+     HIỂN THỊ NGÀY HIỆN TẠI
+  ======================================================== */
+
+  const currentDate = document.getElementById("currentDate");
+
+  if (currentDate) {
+
+    const now = new Date();
+
+    const options = {
+      weekday: "long",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    };
+
+    currentDate.textContent =
+      now.toLocaleDateString("vi-VN", options);
+
+  }
+
+
+  /* ========================================================
+     XỬ LÝ CATEGORY TỪ URL
+     
+     Đã sửa lỗi:
+     Code cũ chạy trong HEAD khi select chưa tồn tại.
+  ======================================================== */
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const catFromUrl =
+    params.get("category");
+
+  if (catFromUrl) {
+
+    const category =
+      decodeURIComponent(catFromUrl);
+
+    const select =
+      document.getElementById("categoryFilter");
+
+    if (select) {
+
+      select.value = category;
+
+      /*
+       * Gọi hàm filterArticles sau khi DOM
+       * đã tồn tại.
+       */
+      if (typeof filterArticles === "function") {
+        filterArticles();
+      }
+
+    }
+
+  }
+
+
+  /* ========================================================
+     HIỂN THỊ BÀI VIẾT
+     
+     Giữ nguyên hàm của app.js
+  ======================================================== */
+
+  if (typeof showArticlesGrid === "function") {
+
+    showArticlesGrid("news-grid");
+
+  }
+
+
+  /* ========================================================
+     MOBILE MENU
+  ======================================================== */
+
+  const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+  const mainNav =
+    document.getElementById("mainNav");
+
+  if (mobileMenuBtn && mainNav) {
+
+    mobileMenuBtn.addEventListener("click", function () {
+
+      mainNav.classList.toggle("mobile-open");
+
+    });
+
+
+    const navLinks =
+      mainNav.querySelectorAll("a");
+
+    navLinks.forEach(function (link) {
+
+      link.addEventListener("click", function () {
+
+        mainNav.classList.remove("mobile-open");
+
+      });
+
+    });
+
+  }
+
+
+  /* ========================================================
+     NÚT XÓA TÌM KIẾM
+  ======================================================== */
+
+  const searchBox =
+    document.getElementById("searchBox");
+
+  const clearSearch =
+    document.getElementById("clearSearch");
+
+
+  if (searchBox) {
+
+    searchBox.addEventListener("input", function () {
+
+      if (clearSearch) {
+
+        clearSearch.style.display =
+          searchBox.value.trim()
+            ? "flex"
+            : "none";
+
+      }
+
+    });
+
+  }
+
+
+  /* ========================================================
+     NÚT BACK TO TOP
+  ======================================================== */
+
+  const backToTop =
+    document.getElementById("backToTop");
+
+
+  if (backToTop) {
+
+    window.addEventListener("scroll", function () {
+
+      if (window.scrollY > 400) {
+
+        backToTop.classList.add("show");
+
+      } else {
+
+        backToTop.classList.remove("show");
+
+      }
+
+    });
+
+
+    backToTop.addEventListener("click", function () {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  }
+
+});
+
+
+/* ==========================================================
+   XÓA Ô TÌM KIẾM
+
+   Không ảnh hưởng searchArticles()
+========================================================== */
+
+function clearSearchBox() {
+
+  const searchBox =
+    document.getElementById("searchBox");
+
+  const clearSearch =
+    document.getElementById("clearSearch");
+
+
+  if (searchBox) {
+
+    searchBox.value = "";
+
+    /*
+     * Gọi lại hàm tìm kiếm hiện tại
+     */
+    if (typeof searchArticles === "function") {
+
+      searchArticles();
+
+    }
+
+  }
+
+
+  if (clearSearch) {
+
+    clearSearch.style.display = "none";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
+```
